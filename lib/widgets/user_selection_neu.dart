@@ -1,3 +1,4 @@
+import 'package:ecommerce_app2/Pages/detailsPage.dart';
 import 'package:ecommerce_app2/widgets/bold_text_widget.dart';
 import 'package:ecommerce_app2/widgets/neu2.dart';
 import 'package:flutter/material.dart';
@@ -13,33 +14,43 @@ class UserChoiceNeu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:const  EdgeInsets.symmetric(vertical: 14,horizontal: 10),
-      child: NeuBox2(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top:8.0,left:8,right: 8),
+      margin:const  EdgeInsets.symmetric(vertical: 6,horizontal: 8),
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage(imageUrl: imagePath, details: subtitle, price: price, title: title)));
+        },
+        child: NeuBox2(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image.asset(imagePath,
-                            height: 100,
-                            width: 140,),
-                    
-                            Text(title,
-                            style: BoldTextClass
-                            .semiBoldText(),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(imagePath,
+                              fit: BoxFit.cover,
+                              height: 120,
+                              width: double.infinity,),
                             ),
                             
-                            SizedBox(height: 3,),
-                            Text(subtitle,
-                            style: BoldTextClass.LightboldText()),
-                
-                            SizedBox(height: 3,),
-                            Text('\$$price',
+                            SizedBox(height: 5,),
+                            Text(title,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black54,
+                              fontWeight: FontWeight.w500
+                            )
+                            ),
+                            
+                        
+                            
+                                        
+                            SizedBox(height: 2,),
+                            Text('\$'+price,
                             style: BoldTextClass.semiBoldText(),)
                           ],
                         ),
                       ),
-                    ),
+      ),
     );
   }
 }

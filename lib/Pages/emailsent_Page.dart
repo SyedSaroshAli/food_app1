@@ -14,6 +14,7 @@ class _EmailSentState extends State<EmailSent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Container(
         padding: const EdgeInsets.only(left:30,right:30),
@@ -38,7 +39,7 @@ class _EmailSentState extends State<EmailSent> {
                          )),
                  
                   const SizedBox(height: 10,),
-                  Text('We have sent an email to \n sarooshali32@gmail.com with a link to \nreset your password.',
+                  Text('We have sent an email to \n ${widget.email} with a link to \nreset your password.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
            fontSize: 18,

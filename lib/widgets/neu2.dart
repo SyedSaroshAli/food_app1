@@ -10,7 +10,7 @@ class NeuBox2 extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color:  Colors.grey.shade50,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           //darker shadow on bottom right
           BoxShadow(

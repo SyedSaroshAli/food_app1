@@ -1,8 +1,13 @@
+import 'package:cloud_firestore_odm/annotation.dart';
 import 'package:ecommerce_app2/Pages/login_page.dart';
+import 'package:ecommerce_app2/services/database.dart';
+import 'package:ecommerce_app2/services/shared_pref.dart';
 import 'package:ecommerce_app2/widgets/bold_text_widget.dart';
 import 'package:ecommerce_app2/widgets/bottom_nav.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:random_string/random_string.dart';
 
 
 class SignUpPage extends StatefulWidget {
@@ -29,6 +34,21 @@ class _SignUpPageState extends State<SignUpPage> {
           content: Text(
             'Registered',
             style: TextStyle(fontSize: 20,color: Colors.white),)));
+         
+          String id = randomAlphaNumeric(10);
+          Map<String, dynamic> addUserInfo ={
+            'Name': nameController.text,
+            'Email': emailController.text,
+            'Wallet': '0',
+            'id':id, 
+            
+          };
+          await DatabaseMethods().addUserDetail(addUserInfo, id);
+          await SharedPreferenceHelper().saveUserName(nameController.text);
+          await SharedPreferenceHelper().saveUserEmail(emailController.text);
+          await SharedPreferenceHelper().saveUserWallet('0');
+          await SharedPreferenceHelper().saveUserId(id);
+          await SharedPreferenceHelper().saveUserPassword(passController.text);
 
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> BottomNavigator()));
       }
@@ -63,6 +83,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
            Container(
@@ -124,7 +145,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               style: BoldTextClass.DarkboldTextLarge(),),
                             ),
                             
-                             SizedBox(height: MediaQuery.of(context).size.height/70),
+                            //  SizedBox(height: MediaQuery.of(context).size.height/70),
+                            Spacer(),
                             Text('Name',
                             style: TextStyle(
                               fontSize: 16,
@@ -157,7 +179,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                   width: 3,
                                 ),),
                                 prefixIcon: Icon(Icons.person_outlined),
-                                
+                                 focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                 borderSide: BorderSide(
+                                  color: Colors.red,
+                                  width: 3,
+                                ),),
                                 hintStyle: BoldTextClass.LightboldText(),
                                 errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -174,7 +201,8 @@ class _SignUpPageState extends State<SignUpPage> {
                             
                        
                        
-                            SizedBox(height:  MediaQuery.of(context).size.height/100,),
+                            // SizedBox(height:  MediaQuery.of(context).size.height/100,),
+                            Spacer(),
                             Text('Email',
                             style: TextStyle(
                               fontSize: 16,
@@ -227,7 +255,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               
                             
                                       
-                            SizedBox(height: MediaQuery.of(context).size.height/100,),
+                            // SizedBox(height: MediaQuery.of(context).size.height/100,),
+                            Spacer(),
                             Text('Password',
                             style: TextStyle(
                               fontSize: 16,
@@ -278,7 +307,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             
                        
                                       
-                            Spacer(),         
+                            Spacer(flex: 4,),       
                             Center(
                               child: GestureDetector(
                                 onTap: (){
@@ -341,6 +370,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         ],
                       ),
              ],
+             
+             
            ),
                   
         ],

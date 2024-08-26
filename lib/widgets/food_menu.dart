@@ -19,7 +19,7 @@ final String imagePath;
       padding: const EdgeInsets.only(right:14,bottom:10),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage(imageUrl: imagePath, details: subtitle, price: price, title: title)));
         },
         child: NeuBox2(
           child: Container(

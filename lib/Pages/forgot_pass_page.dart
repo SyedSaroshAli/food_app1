@@ -52,6 +52,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
        body : Padding(
          padding: const EdgeInsets.only(top:40,left: 20,right: 20),

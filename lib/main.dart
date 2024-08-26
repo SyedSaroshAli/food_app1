@@ -1,4 +1,12 @@
+import 'package:ecommerce_app2/Pages/add_food_items_page.dart';
+import 'package:ecommerce_app2/Pages/admin_home.dart';
+import 'package:ecommerce_app2/Pages/admin_login_page.dart';
+import 'package:ecommerce_app2/Pages/homepage.dart';
+import 'package:ecommerce_app2/Pages/login_page.dart';
 import 'package:ecommerce_app2/Pages/onboard.dart';
+import 'package:ecommerce_app2/Pages/order_page.dart';
+import 'package:ecommerce_app2/Pages/profile_page.dart';
+import 'package:ecommerce_app2/Pages/splash.dart';
 import 'package:ecommerce_app2/Pages/wallet_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -39,10 +47,10 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 109, 72, 172)),
         useMaterial3: true,
       ),
-      home: const WalletPage()
+      home: Splash(),
     );
   }
 }
