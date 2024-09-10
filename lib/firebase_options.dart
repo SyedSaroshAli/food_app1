@@ -50,16 +50,16 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD0dptmewNg_I-jUSnKrL1qendoTZk9uY8',
-    appId: '1:680602509056:android:a3f3f383ed5d9916c59de5',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '680602509056',
     projectId: 'fooddelivery-49b36',
     storageBucket: 'fooddelivery-49b36.appspot.com',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDEV2DwIHu_T0jWMg2PAMDu06hMBhXt4l8',
-    appId: '1:680602509056:web:76aae3bd3570809fc59de5',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '680602509056',
     projectId: 'fooddelivery-49b36',
     authDomain: 'fooddelivery-49b36.firebaseapp.com',
