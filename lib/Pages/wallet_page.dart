@@ -285,7 +285,7 @@ Future<Map<String, dynamic>> createPaymentIntent(int amount, String currency) as
       Uri.parse('https://api.stripe.com/v1/payment_intents'),
       body: body,
       headers: {
-        'Authorization': 'Bearer sk_test_51PabDnG3GuIQ1Fn9GI81D21tECS7TeTdqFBn1P7Zq6wPGDLwXRrJ6h5BTdQt8TSb2OuoC6261ZVyi0HSMRmm4VG800fORbMXBT',
+        'Authorization': '',
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     );
